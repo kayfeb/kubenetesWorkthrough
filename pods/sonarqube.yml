@@ -7,7 +7,7 @@ metadata:
 spec:
   containers:
   - name: sonar
-    image: <Image>
+    image: sonarqube
     resources:
       limits:
         memory: "128Mi"
