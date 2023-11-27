@@ -7,10 +7,12 @@ metadata:
 spec:
   containers:
   - name: myapp
-    image: <Image>
+    image: jassyboy/roadmapdevops:V4
     resources:
       limits:
         memory: "128Mi"
         cpu: "500m"
     ports:
-      - containerPort: <Port>
+      - containerPort: 80
+
+  
