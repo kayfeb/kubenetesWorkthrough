@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: classapp
 spec:
-  replica: 2
+  replicas: 2
   selector:
     matchLabels:
       app: classapp
@@ -21,3 +21,17 @@ spec:
             cpu: "500m"
         ports:
         - containerPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: classapp
+spec:
+  selector:
+    app: classapp
+  ports:
+  - port: 80
+    targetPort: 80
+    NodePort: 3000
+
