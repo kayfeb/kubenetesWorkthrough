@@ -13,6 +13,7 @@ spec:
         memory: "128Mi"
         cpu: "500m"
     ports:
+<<<<<<< HEAD
       - containerPort: 8080
 
 ---
@@ -28,3 +29,6 @@ spec:
   - port: 80
     targetPort: 8080
     NodePort: 30000
+=======
+      - containerPort: 80
+>>>>>>> 9c5abb754023dc37f0cd77e3db4d8f75d1866dfb
