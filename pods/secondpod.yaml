@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: sampleapp
+  labels:
+    name: sampleapp
+spec:
+  containers:
+  - name: sampleapp
+    image: kizy222/sampleapp:V94
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: <Port>
