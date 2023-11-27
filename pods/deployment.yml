@@ -26,8 +26,9 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: classapp
+  name: classappsvc
 spec:
+  type: NodePort
   selector:
     app: classapp
   ports:
