@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: slim
+spec:
+  replicas: 15
+  revisionHistoryLimit: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  selector:
+    matchLabels:
+      app: myapp-slim
+  template:
+    metadata:
+      labels:
+        app: myapp-slim
+      annotations:
+        kubernetes.io/change-cause: "This is the version 1 of the application"
+    spec:
+      containers:
+      - name: myapp-slim
+        image: jassyboy/roadmapdevops:V1
+        ports:
+        - containerPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: slim-svc
+spec:
+  type: NodePort
+  selector:
+    app: myapp-slim
+  ports:
+  - port: 80
+    targetPort: 80
+    nodePort: 32500
